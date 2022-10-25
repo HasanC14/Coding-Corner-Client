@@ -14,7 +14,7 @@ const SideNavbar = () => {
   }, []);
   return (
     <div>
-      <aside className="w-full p-6 sm:w-60 dark:bg-gray-900 dark:text-gray-100 rounded-xl h-96">
+      <aside className="w-full p-6 sm:w-60 dark:bg-gray-900 dark:text-gray-100 rounded-xl h-96 mt-10">
         <nav className="space-y-8 text-sm w-96">
           <div className="space-y-2">
             <Link

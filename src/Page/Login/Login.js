@@ -10,8 +10,11 @@ const Login = () => {
           Login to your account
         </h2>
         <p className="text-sm text-center dark:text-gray-400">
-          Dont have account?
-          <Link to="/Register" className="focus:underline hover:underline">
+          Don't have a account?
+          <Link
+            to="/Register"
+            className="focus:underline hover:underline hover:text-violet-400"
+          >
             Sign up here
           </Link>
         </p>
@@ -48,7 +51,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 id="email"
-                placeholder="leroy@jenkins.com"
+                placeholder="hasan@gmail.com"
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
               />
             </div>
@@ -57,12 +60,6 @@ const Login = () => {
                 <label for="password" className="text-sm">
                   Password
                 </label>
-                <a
-                  href="/"
-                  className="text-xs hover:underline dark:text-gray-400"
-                >
-                  Forgot password?
-                </a>
               </div>
               <input
                 type="password"
@@ -72,6 +69,12 @@ const Login = () => {
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
               />
             </div>
+            <a
+              href="/"
+              className="text-xs hover:underline dark:text-gray-400 hover:text-violet-400"
+            >
+              Forgot password?
+            </a>
           </div>
           <button
             type="button"

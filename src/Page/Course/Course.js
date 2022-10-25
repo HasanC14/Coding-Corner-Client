@@ -12,7 +12,7 @@ const Course = () => {
         <SideNavbar></SideNavbar>
       </div>
       <div className="md:col-span-6">
-        <p className="text-3xl font-bold text-center">All Courses</p>
+        <p className="text-3xl font-bold text-center mb-4">All Courses</p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 grid-cols-1">
           {AllCourses.map((category) => (
             <CourseDetails
