@@ -24,21 +24,24 @@ const Navbar = () => {
         <div>
           <nav ref={navRef}>
             <Link to="/">Home</Link>
-            <Link to="/Course">Course</Link>
+            <Link to="/Course">Courses</Link>
             <a href="#Reviews">Reviews</a>
-            <a href="#Blog">Blog</a>
+            <Link to="/Blog">Blog</Link>
             <Link to="/Login">Login</Link>
             <Link to="/Register">Register</Link>
-            <div className="md: ml-8">
-              <p className="text-xl font-bold font-mono text-center">
+            <div className="md:w-20">
+              <img
+                src="https://lh3.googleusercontent.com/a/ALm5wu1MgGZviI0A2ELDgXA4ZY5mHc1PiZzC5ZVf6aGPiYI=s75-p-k-rw-no"
+                alt=""
+                className="w-10 h-10 bg-center bg-cover rounded-full dark:bg-gray-500"
+                title="Hasan Chowdhury"
+              />
+              <p className="text-xl font-bold font-mono text-center ml-3">
                 Hasan Chowdhury
               </p>
             </div>
             <div className="flex justify-end md:hidden">
-              <label
-                for="Toggle1"
-                className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
-              >
+              <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
                 <span>
                   <FaSun />
                 </span>
@@ -59,10 +62,7 @@ const Navbar = () => {
         </div>
 
         <div className="md:flex justify-end hidden">
-          <label
-            for="Toggle2"
-            className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
-          >
+          <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
             <span>
               <FaMoon />
             </span>

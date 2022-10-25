@@ -1,6 +1,7 @@
 import React from "react";
 import HeroCover from "../../Image/HeroCover.jpg";
 import Blog from "../Blog/Blog";
+import Course from "../Course/Course";
 import FAQ from "../FAQ/FAQ.js";
 import Reviews from "../Reviews/Reviews";
 const Home = () => {
@@ -33,6 +34,9 @@ const Home = () => {
           className="w-4/6 mx-auto mb-12 -mt-20 rounded-2xl shadow-md lg:-mt-40 dark:bg-gray-500"
         />
       </section>
+      {/* <section id="Course">
+        <Course></Course>
+      </section> */}
       <section id="Blog">
         <Blog></Blog>
       </section>
