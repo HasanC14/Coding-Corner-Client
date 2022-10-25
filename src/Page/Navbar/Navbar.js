@@ -23,6 +23,7 @@ const Navbar = () => {
   return (
     <header>
       <div className="grid grid-cols-3 gap-8">
+        {/* Logo */}
         <div>
           <Link to="/" className="p-2 mr-4 inline-flex items-center">
             <img src={logo} alt="" className="w-10 mr-3" />
@@ -31,6 +32,7 @@ const Navbar = () => {
             </span>
           </Link>
         </div>
+        {/* Menu */}
         <div>
           <nav ref={navRef}>
             <Link to="/">Home</Link>
@@ -46,7 +48,7 @@ const Navbar = () => {
               </>
             )}
             {User ? (
-              <div className="md:w-20">
+              <div className="md:w-20 md:ml-10">
                 <img
                   src={User.photoURL}
                   alt="User_image"
@@ -61,6 +63,7 @@ const Navbar = () => {
               <FaUser></FaUser>
             )}
 
+            {/* Mobile view Toggle */}
             <div className="flex justify-end md:hidden">
               <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
                 <span>
@@ -81,8 +84,8 @@ const Navbar = () => {
             </button>
           </nav>
         </div>
-
-        <div className="md:flex justify-end hidden">
+        {/* Desktop view Toggle */}
+        <div className="md:flex justify-end hidden ">
           <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
             <span>
               <FaMoon />
