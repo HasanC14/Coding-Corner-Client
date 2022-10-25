@@ -25,12 +25,14 @@ const Navbar = () => {
           <nav ref={navRef}>
             <Link to="/">Home</Link>
             <Link to="/Course">Course</Link>
-            <Link to="/Reviews">Reviews</Link>
-            <Link to="/Blog">Blog</Link>
+            <a href="#Reviews">Reviews</a>
+            <a href="#Blog">Blog</a>
             <Link to="/Login">Login</Link>
             <Link to="/Register">Register</Link>
-            <div className="md:ml-1/2">
-              <p className="text-xl font-bold font-mono">Hasan Chowdhury</p>
+            <div className="md: ml-8">
+              <p className="text-xl font-bold font-mono text-center">
+                Hasan Chowdhury
+              </p>
             </div>
             <div className="flex justify-end md:hidden">
               <label
