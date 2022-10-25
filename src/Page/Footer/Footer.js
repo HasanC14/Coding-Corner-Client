@@ -11,44 +11,44 @@ const Footer = () => {
             <div className="flex justify-center align-middle">
               <Link to="/" className="p-2 mr-4 inline-flex items-center">
                 <img src={logo} alt="" className="w-10 mr-3" />
-                <span className="text-xl font-bold uppercase tracking-wide text-cyan-200">
+                <span className="text-xl font-bold uppercase tracking-wide text-violet-400">
                   CODE CORNER
                 </span>
               </Link>
             </div>
             <div className="col-span-6 text-center md:text-left md:col-span-3">
-              <ul>
-                <li>
-                  <Link to="/" className="hover:dark:text-violet-400">
+              <div className="grid grid-cols-3 gap-2">
+                <div>
+                  <a href="#hero" className="hover:dark:text-violet-400">
                     Home
-                  </Link>
-                </li>
-                <li>
+                  </a>
+                </div>
+                <div>
                   <Link to="/Course" className="hover:dark:text-violet-400">
                     Course
                   </Link>
-                </li>
-                <li>
-                  <Link to="#Blog" className="hover:dark:text-violet-400">
+                </div>
+                <div>
+                  <a href="#Blog" className="hover:dark:text-violet-400">
                     Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#Reviews" className="hover:dark:text-violet-400">
+                  </a>
+                </div>
+                <div>
+                  <a href="#Reviews" className="hover:dark:text-violet-400">
                     Reviews
-                  </Link>
-                </li>
-                <li>
+                  </a>
+                </div>
+                <div>
                   <Link to="/Login" className="hover:dark:text-violet-400">
                     Login
                   </Link>
-                </li>
-                <li>
+                </div>
+                <div>
                   <Link to="/Register" className="hover:dark:text-violet-400">
                     Register
                   </Link>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
           <div className="grid justify-center pt-6 lg:justify-between">

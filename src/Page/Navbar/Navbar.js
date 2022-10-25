@@ -16,7 +16,7 @@ const Navbar = () => {
         <div>
           <Link to="/" className="p-2 mr-4 inline-flex items-center">
             <img src={logo} alt="" className="w-10 mr-3" />
-            <span className="text-xl font-bold uppercase tracking-wide text-cyan-200">
+            <span className="text-xl font-bold uppercase tracking-wide text-violet-400">
               CODE CORNER
             </span>
           </Link>
