@@ -32,11 +32,11 @@ const Home = () => {
         </div>
         <img
           src={HeroCover}
-          alt=""
+          alt="Cover_Image"
           className="lg:w-1/2 w-4/6 mx-auto mb-12 -mt-28 rounded-2xl lg:-mt-80"
         />
       </section>
-      <section id="Course" className="container flex justify-center md:ml-48">
+      <section className="container flex justify-center md:ml-48">
         <div className="grid md:grid-cols-3 gap-4 grid-cols-1">
           {Categories.map((category) => (
             <CategoryCard key={category.id} category={category}></CategoryCard>

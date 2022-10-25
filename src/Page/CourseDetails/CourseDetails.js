@@ -1,37 +1,10 @@
 import React from "react";
-import { FaCheckCircle, FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const CourseDetails = ({ category }) => {
-  const { instructor, title, rating, taken_by, details, thumbnail_url } =
-    category;
+  const { title, details, thumbnail_url, _id } = category;
   return (
     <div>
-      <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100 lg:h-[800px]">
-        <div className="flex space-x-4">
-          <img
-            alt="instructor_img"
-            src={instructor.img}
-            className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500"
-          />
-          <div className="flex flex-col space-y-1">
-            <p>{instructor.name}</p>
-            <div className="flex space-x-2 text-sm dark:text-gray-400">
-              <button
-                type="button"
-                className="flex items-center p-1 space-x-1.5 dark:text-violet-400"
-              >
-                <FaCheckCircle></FaCheckCircle>
-                <span>{taken_by}</span>
-              </button>
-              <button
-                type="button"
-                className="flex items-center p-1 space-x-1.5 dark:text-violet-400"
-              >
-                <FaStar></FaStar>
-                <span>{rating.number}</span>
-              </button>
-            </div>
-          </div>
-        </div>
+      <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100 lg:h-[750px]">
         <div>
           <img
             src={thumbnail_url}
@@ -42,9 +15,11 @@ const CourseDetails = ({ category }) => {
           <p className="text-sm dark:text-gray-400">{details}</p>
         </div>
         <div className="flex flex-wrap justify-between">
-          <button className="btn bg-violet-400 w-full text-gray-800 hover:bg-violet-500">
-            Get Premium Access
-          </button>
+          <Link to={`/SelectedCourse/${_id}`}>
+            <button className="btn w-96 bg-violet-400 text-gray-800 hover:bg-violet-500">
+              See Full Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>
