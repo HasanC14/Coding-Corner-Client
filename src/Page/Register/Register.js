@@ -1,7 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 import SignUpImg from "../../Image/SignUp.png";
 const Register = () => {
+  const { Register, UpdateUser } = useContext(AuthContext);
+  const [error, setError] = useState();
+  const navigate = useNavigate();
+  const HandleTC = (event) => {
+    const check = event.target.checked;
+  };
+  const HandleForm = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const Username = form.username.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    Register(email, password)
+      .then(() => {
+        console.log("Login Successful of", email);
+        form.reset();
+        setError("");
+        navigate("/");
+        const profile = { displayName: Username, photoURL: photoURL };
+        UpdateUser(profile)
+          .then(() => {})
+          .catch((error) => {});
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
   return (
     <div>
       <section className="py-6 dark:text-gray-50">
@@ -9,23 +38,26 @@ const Register = () => {
           <div>
             <img src={SignUpImg} alt="Login_Image" />
           </div>
-          <form className="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid items-center justify-center">
+          <form
+            className="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid items-center justify-center"
+            onSubmit={HandleForm}
+          >
             <label className="block w-96">
               <span className="mb-1">Full name</span>
               <input
                 type="text"
                 name="username"
                 placeholder="Hasan Chowdhury"
-                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400"
+                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 text-black"
               />
             </label>
             <label className="block w-96">
               <span className="mb-1">Photo Url</span>
               <input
                 type="text"
-                name="photo"
+                name="photoURL"
                 placeholder="https://xyz.com"
-                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400"
+                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 text-black"
               />
             </label>
             <label className="block w-96">
@@ -34,16 +66,16 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="hasan@gmail.com"
-                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 "
+                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 text-black"
               />
             </label>
             <label className="block w-96">
               <span className="mb-1">Password</span>
               <input
-                type="email"
+                type="password"
                 name="password"
                 placeholder="*********"
-                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 "
+                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 text-black"
               />
             </label>
             <p className="text-sm text-center dark:text-gray-400">
@@ -55,8 +87,9 @@ const Register = () => {
                 Login here
               </Link>
             </p>
+            <p className="text-sm text-center text-red-600">{error}</p>
             <button
-              type="button"
+              type="submit"
               className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-400 dark:text-gray-900 focus:ring-violet-400 hover:ring-violet-400 w-96"
             >
               SING UP

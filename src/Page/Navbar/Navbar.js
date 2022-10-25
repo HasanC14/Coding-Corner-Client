@@ -1,17 +1,25 @@
 import React, { useRef } from "react";
 import { useContext } from "react";
-import { FaBars, FaTimes, FaSun, FaMoon } from "react-icons/fa";
+import { FaBars, FaTimes, FaSun, FaMoon, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import logo from "../../Image/logo.png";
 import "./Navbar.css";
 const Navbar = () => {
   const navRef = useRef();
-  const { User } = useContext(AuthContext);
+  const { User, LogOut } = useContext(AuthContext);
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
-
+  const HandleLogout = () => {
+    LogOut()
+      .then(() => {
+        alert("Sign-out successful");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <header>
       <div className="grid grid-cols-3 gap-8">
@@ -29,19 +37,30 @@ const Navbar = () => {
             <Link to="/Course">Courses</Link>
             <a href="#Reviews">Reviews</a>
             <Link to="/Blog">Blog</Link>
-            <Link to="/Login">Login</Link>
-            <Link to="/Register">Register</Link>
-            <div className="md:w-20">
-              <img
-                src={User.photoURL}
-                alt="User_image"
-                className="w-10 h-10 bg-center bg-cover rounded-full dark:bg-gray-500"
-                title={User.displayName}
-              />
-              <p className="text-xl font-bold font-mono text-center ml-3">
-                {User.displayName}
-              </p>
-            </div>
+            {User ? (
+              <button onClick={HandleLogout}>Logout</button>
+            ) : (
+              <>
+                <Link to="/Login">Login</Link>
+                <Link to="/Register">Register</Link>
+              </>
+            )}
+            {User ? (
+              <div className="md:w-20">
+                <img
+                  src={User.photoURL}
+                  alt="User_image"
+                  className="w-10 h-10 bg-center bg-cover rounded-full dark:bg-gray-500"
+                  title={User.displayName}
+                />
+                <p className="text-xl font-bold font-mono text-center ml-3">
+                  {User.displayName}
+                </p>
+              </div>
+            ) : (
+              <FaUser></FaUser>
+            )}
+
             <div className="flex justify-end md:hidden">
               <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
                 <span>
