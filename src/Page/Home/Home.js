@@ -1,7 +1,6 @@
 import React from "react";
-import HeroCover from "../../Image/HeroCover.jpg";
+import HeroCover from "../../Image/HeroCover.png";
 import Blog from "../Blog/Blog";
-import Course from "../Course/Course";
 import FAQ from "../FAQ/FAQ.js";
 import Reviews from "../Reviews/Reviews";
 import { useLoaderData } from "react-router-dom";
@@ -34,14 +33,14 @@ const Home = () => {
         <img
           src={HeroCover}
           alt=""
-          className="w-4/6 mx-auto mb-12 -mt-20 rounded-2xl shadow-md lg:-mt-40 dark:bg-gray-500"
+          className="lg:w-1/2 w-4/6 mx-auto mb-12 -mt-28 rounded-2xl lg:-mt-80"
         />
       </section>
       <section id="Course" className="container flex justify-center md:ml-48">
         <div className="grid md:grid-cols-3 gap-4 grid-cols-1">
           {Categories.map((category) => (
             <CategoryCard key={category.id} category={category}></CategoryCard>
-          ))}{" "}
+          ))}
         </div>
       </section>
       <section id="Blog">

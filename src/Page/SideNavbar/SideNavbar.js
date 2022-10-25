@@ -15,14 +15,21 @@ const SideNavbar = () => {
   return (
     <div>
       <aside className="w-full p-6 sm:w-60 dark:bg-gray-900 dark:text-gray-100 rounded-xl h-96">
-        <nav className="space-y-8 text-sm">
+        <nav className="space-y-8 text-sm w-96">
           <div className="space-y-2">
-            <h2 className="text-3xl text-center font-semibold tracking-widest uppercase dark:text-gray-400">
+            <Link
+              to={"/Course"}
+              className="text-3xl text-center font-semibold tracking-widest uppercase dark:text-gray-400"
+            >
               COURSES
-            </h2>
+            </Link>
             <div className="flex flex-col space-y-1">
               {Categories.map((Category) => (
-                <Link className="text-2xl" key={Category.id}>
+                <Link
+                  className="text-2xl"
+                  key={Category.id}
+                  to={`/Course/${Category.id}`}
+                >
                   {Category.name}
                 </Link>
               ))}

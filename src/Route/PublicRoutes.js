@@ -7,6 +7,7 @@ import Error from "../Page/Error/Error";
 import Home from "../Page/Home/Home";
 import Login from "../Page/Login/Login";
 import Register from "../Page/Register/Register";
+import SelectedTopic from "../Page/SelectedTopic/SelectedTopic";
 
 export const routes = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/Course/:id",
-        element: <CourseDetails></CourseDetails>,
+        element: <SelectedTopic></SelectedTopic>,
         loader: ({ params }) =>
           fetch(
             `https://coding-corner-server.vercel.app/categories/${params.id}`

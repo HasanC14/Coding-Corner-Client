@@ -3,17 +3,16 @@ import { useLoaderData } from "react-router-dom";
 import CourseDetails from "../CourseDetails/CourseDetails";
 import SideNavbar from "../SideNavbar/SideNavbar";
 
-const Course = () => {
+const SelectedTopic = () => {
   const AllCourses = useLoaderData();
   console.log(AllCourses);
   return (
-    <div className="m-10 grid md:grid-cols-8 gap-4">
-      <div className="md:col-span-2">
+    <div className="m-10 grid lg:grid-cols-8 md:grid-cols-6 gap-4">
+      <div className="lg:col-span-2 md:col-span-1">
         <SideNavbar></SideNavbar>
       </div>
-      <div className="md:col-span-6">
-        <p className="text-3xl font-bold text-center">All Courses</p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 grid-cols-1">
+      <div className="lg:col-span-6 md:col-span-5">
+        <div className="grid lg:grid-cols-3 gap-4 grid-cols-1 md:ml-16 lg:ml-0">
           {AllCourses.map((category) => (
             <CourseDetails
               key={category.id}
@@ -26,4 +25,4 @@ const Course = () => {
   );
 };
 
-export default Course;
+export default SelectedTopic;
