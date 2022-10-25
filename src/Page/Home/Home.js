@@ -4,7 +4,10 @@ import Blog from "../Blog/Blog";
 import Course from "../Course/Course";
 import FAQ from "../FAQ/FAQ.js";
 import Reviews from "../Reviews/Reviews";
+import { useLoaderData } from "react-router-dom";
+import CategoryCard from "../CategoryCard/CategoryCard";
 const Home = () => {
+  const Categories = useLoaderData();
   return (
     <div>
       <section id="hero">
@@ -34,9 +37,13 @@ const Home = () => {
           className="w-4/6 mx-auto mb-12 -mt-20 rounded-2xl shadow-md lg:-mt-40 dark:bg-gray-500"
         />
       </section>
-      {/* <section id="Course">
-        <Course></Course>
-      </section> */}
+      <section id="Course" className="container flex justify-center md:ml-48">
+        <div className="grid md:grid-cols-3 gap-4 grid-cols-1">
+          {Categories.map((category) => (
+            <CategoryCard key={category.id} category={category}></CategoryCard>
+          ))}{" "}
+        </div>
+      </section>
       <section id="Blog">
         <Blog></Blog>
       </section>

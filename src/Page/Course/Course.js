@@ -1,19 +1,25 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+
 import CategoryCard from "../CategoryCard/CategoryCard";
+import CourseDetails from "../CourseDetails/CourseDetails";
 import SideNavbar from "../SideNavbar/SideNavbar";
 
 const Course = () => {
-  const Categories = useLoaderData();
+  const AllCourses = useLoaderData();
+  console.log(AllCourses);
   return (
     <div className="m-10 grid md:grid-cols-8 gap-4">
       <div className="md:col-span-2">
-        <SideNavbar key={Categories.id} Categories={Categories}></SideNavbar>
+        <SideNavbar></SideNavbar>
       </div>
       <div className="md:col-span-6">
         <div className="grid md:grid-cols-3 gap-4 grid-cols-1">
-          {Categories.map((category) => (
-            <CategoryCard key={category.id} category={category}></CategoryCard>
+          {AllCourses.map((category) => (
+            <CourseDetails
+              key={category.id}
+              category={category}
+            ></CourseDetails>
           ))}
         </div>
       </div>

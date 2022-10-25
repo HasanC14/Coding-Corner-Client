@@ -11,8 +11,8 @@ const CategoryCard = ({ category }) => {
         <div className="card-body">
           <p className="card-title text-5xl text-white">{name}</p>
           <div className="card-actions justify-center">
-            <button className="btn bg-violet-400 w-48 text-gray-800 hover:bg-violet-500">
-              See More
+            <button className="btn bg-violet-400 w-80 text-gray-800 hover:bg-violet-500">
+              See Courses on {name}
             </button>
           </div>
         </div>
