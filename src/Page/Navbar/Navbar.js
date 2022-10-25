@@ -1,11 +1,13 @@
 import React, { useRef } from "react";
+import { useContext } from "react";
 import { FaBars, FaTimes, FaSun, FaMoon } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 import logo from "../../Image/logo.png";
 import "./Navbar.css";
 const Navbar = () => {
   const navRef = useRef();
-
+  const { User } = useContext(AuthContext);
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
@@ -31,13 +33,13 @@ const Navbar = () => {
             <Link to="/Register">Register</Link>
             <div className="md:w-20">
               <img
-                src="https://lh3.googleusercontent.com/a/ALm5wu1MgGZviI0A2ELDgXA4ZY5mHc1PiZzC5ZVf6aGPiYI=s75-p-k-rw-no"
-                alt=""
+                src={User.photoURL}
+                alt="User_image"
                 className="w-10 h-10 bg-center bg-cover rounded-full dark:bg-gray-500"
-                title="Hasan Chowdhury"
+                title={User.displayName}
               />
               <p className="text-xl font-bold font-mono text-center ml-3">
-                Hasan Chowdhury
+                {User.displayName}
               </p>
             </div>
             <div className="flex justify-end md:hidden">
