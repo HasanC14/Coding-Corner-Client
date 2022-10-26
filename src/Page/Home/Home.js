@@ -3,7 +3,7 @@ import HeroCover from "../../Image/HeroCover.png";
 import Blog from "../Blog/Blog";
 import FAQ from "../FAQ/FAQ.js";
 import Reviews from "../Reviews/Reviews";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import CategoryCard from "../CategoryCard/CategoryCard";
 const Home = () => {
   const Categories = useLoaderData();
@@ -16,17 +16,16 @@ const Home = () => {
               Not sure which tech career is right for you?
             </h1>
             <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-900">
-              CODE CORNER skill path is your portal to discovering whether a
-              career in Computer Science, Web Development, or Data Science is
-              right for you.
+              <span className="font-bold">CODE CORNER </span>skill path is your
+              portal to discovering whether a career in Computer Science, Web
+              Development, or Data Science is right for you.
             </p>
             <div className="flex flex-wrap justify-center">
-              <button
-                type="button"
-                className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-gray-800 dark:text-gray-50"
-              >
-                See Courses
-              </button>
+              <Link to={"/Course"}>
+                <button className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-gray-800 dark:text-gray-50">
+                  See Courses
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -36,6 +35,9 @@ const Home = () => {
           className="lg:w-1/2 w-4/6 mx-auto mb-12 -mt-28 rounded-2xl lg:-mt-80"
         />
       </section>
+      <p className="md:text-6xl text-3xl text-center font-bold mb-5">
+        Course Topics
+      </p>
       <section className="container flex justify-center md:ml-48">
         <div className="grid md:grid-cols-3 gap-4 grid-cols-1">
           {Categories.map((category) => (

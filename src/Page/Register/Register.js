@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 import { AuthContext } from "../../Context/AuthProvider";
 import SignUpImg from "../../Image/SignUp.png";
+import "./Register.css";
 const Register = () => {
   const { Register, UpdateUser } = useContext(AuthContext);
   const [error, setError] = useState();
@@ -18,7 +20,10 @@ const Register = () => {
     const password = form.password.value;
     Register(email, password)
       .then(() => {
-        console.log("Login Successful of", email);
+        swal({
+          title: "Successfully Registered",
+          button: "OK",
+        });
         form.reset();
         setError("");
         navigate("/");

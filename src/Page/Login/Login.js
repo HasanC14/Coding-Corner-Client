@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import LoginImg from "../../Image/Login.png";
+import swal from "sweetalert";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import "./Login.css";
 const Login = () => {
   const { Login, LoginWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState();
@@ -15,7 +17,10 @@ const Login = () => {
     const password = form.password.value;
     Login(email, password)
       .then(() => {
-        alert("Login Successful");
+        swal({
+          title: "Login Successful",
+          button: "OK",
+        });
         form.reset();
         setError("");
       })

@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Blog from "../Page/Blog/Blog";
+import Checkout from "../Page/Checkout/Checkout";
 import Course from "../Page/Course/Course";
-import CourseDetails from "../Page/CourseDetails/CourseDetails";
 import Error from "../Page/Error/Error";
 import Home from "../Page/Home/Home";
 import Login from "../Page/Login/Login";
@@ -38,6 +38,14 @@ export const routes = createBrowserRouter([
       {
         path: "/SelectedCourse/:id",
         element: <SelectedCourse></SelectedCourse>,
+        loader: ({ params }) =>
+          fetch(
+            `https://coding-corner-server.vercel.app/categoryDetails/${params.id}`
+          ),
+      },
+      {
+        path: "/Checkout/:id",
+        element: <Checkout></Checkout>,
         loader: ({ params }) =>
           fetch(
             `https://coding-corner-server.vercel.app/categoryDetails/${params.id}`

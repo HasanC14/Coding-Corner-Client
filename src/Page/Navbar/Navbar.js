@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useContext } from "react";
 import { FaBars, FaTimes, FaSun, FaMoon, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 import { AuthContext } from "../../Context/AuthProvider";
 import logo from "../../Image/logo.png";
 import "./Navbar.css";
@@ -14,7 +15,10 @@ const Navbar = () => {
   const HandleLogout = () => {
     LogOut()
       .then(() => {
-        alert("Sign-out successful");
+        swal({
+          title: "Logout Successful",
+          button: "OK",
+        });
       })
       .catch((error) => {
         console.error(error);

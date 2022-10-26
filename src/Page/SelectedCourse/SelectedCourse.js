@@ -1,11 +1,19 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
-import { FaCheckCircle, FaStar } from "react-icons/fa";
+import { Link, useLoaderData } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 
 const SelectedCourse = () => {
   const SelectedCourse = useLoaderData();
-  const { instructor, title, rating, taken_by, details, thumbnail_url } =
-    SelectedCourse;
+  const {
+    instructor,
+    title,
+    rating,
+    taken_by,
+    details,
+    thumbnail_url,
+    premium,
+    _id,
+  } = SelectedCourse;
   console.log(SelectedCourse);
   return (
     <div className="md:mt-20 md:mb-20">
@@ -21,8 +29,8 @@ const SelectedCourse = () => {
               <div className="mt-3 flex">
                 <img
                   src={instructor.img}
-                  alt=""
-                  className="w-20 rounded-full"
+                  alt="instructor_Image"
+                  className="w-24 rounded-full"
                 />
                 <div className="text-xl ml-5">
                   <p>
@@ -31,7 +39,7 @@ const SelectedCourse = () => {
                   </p>
                   <p>{taken_by} Students</p>
                   <p className="flex text-violet-400">
-                    {rating.number} <FaStar className="ml-2 mt-0.5" />
+                    {rating} <FaStar className="ml-2 mt-0.5" />
                   </p>
                 </div>
               </div>
@@ -47,12 +55,14 @@ const SelectedCourse = () => {
           >
             Download Course Outline
           </button>
-          <button
-            type="submit"
-            className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-400 dark:text-gray-900 focus:ring-violet-400 hover:ring-violet-400 w-96"
-          >
-            Get Premium Access
-          </button>
+          <Link to={`/Checkout/${_id}`}>
+            <button
+              type="submit"
+              className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-400 dark:text-gray-900 focus:ring-violet-400 hover:ring-violet-400 w-96"
+            >
+              Get Premium Access <span className="font-bold">{premium}$</span>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
