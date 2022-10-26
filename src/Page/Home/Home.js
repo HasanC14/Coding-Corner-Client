@@ -38,13 +38,15 @@ const Home = () => {
       <p className="md:text-6xl text-3xl text-center font-bold mb-5">
         Course Topics
       </p>
-      <section className="container flex justify-center md:ml-48">
-        <div className="grid md:grid-cols-3 gap-4 grid-cols-1">
+
+      <section className="container flex justify-center md:ml-48 ">
+        <div className="grid md:grid-cols-3 gap-4 grid-cols-1 ">
           {Categories.map((category) => (
             <CategoryCard key={category.id} category={category}></CategoryCard>
           ))}
         </div>
       </section>
+
       <section id="Blog">
         <Blog></Blog>
       </section>

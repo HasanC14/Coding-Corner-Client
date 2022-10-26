@@ -4,12 +4,13 @@ import swal from "sweetalert";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+//import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import "./Login.css";
 const Login = () => {
-  const { Login, LoginWithGoogle } = useContext(AuthContext);
+  const { Login, LoginWithGoogle, LoginWithGitHub } = useContext(AuthContext);
   const [error, setError] = useState();
-  const provider = new GoogleAuthProvider();
+  // const provider = new GoogleAuthProvider();
+  // const Githubprovider = new GithubAuthProvider();
   const HandleForm = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -29,14 +30,30 @@ const Login = () => {
       });
   };
   const HandleGoogle = () => {
-    LoginWithGoogle(provider)
-      .then((result) => {
-        // const user = result.user;
-        // alert("Login Successful");
-        console.log("Login Success", result);
+    LoginWithGoogle()
+      .then(() => {
+        swal({
+          title: "Login Successful",
+          button: "OK",
+        });
+        setError("");
       })
       .catch((error) => {
         setError(error);
+      });
+  };
+  const HandleGitHub = () => {
+    LoginWithGitHub()
+      .then(() => {
+        swal({
+          title: "Login Successful",
+          button: "OK",
+        });
+        setError("");
+      })
+      .catch((error) => {
+        console.log(error);
+        //setError(error);
       });
   };
   return (
@@ -69,6 +86,7 @@ const Login = () => {
               aria-label="Login with Google"
               type="button"
               className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+              onClick={HandleGitHub}
             >
               <FaGithub></FaGithub>
               <p>Login with GitHub</p>
@@ -85,7 +103,7 @@ const Login = () => {
           >
             <div className="space-y-4">
               <div className="space-y-2">
-                <label for="email" className="block text-sm">
+                <label htmlFor="email" className="block text-sm">
                   Email address
                 </label>
                 <input
@@ -98,7 +116,7 @@ const Login = () => {
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <label for="password" className="text-sm">
+                  <label htmlFor="password" className="text-sm">
                     Password
                   </label>
                 </div>
