@@ -51,7 +51,7 @@ const SelectedCourse = () => {
       </section>
       <div className="flex justify-center mb-10">
         <div className="grid grid-cols-1 gap-4">
-          <Pdf targetRef={ref} filename="code-example.pdf">
+          <Pdf targetRef={ref} filename="Outline.pdf">
             {({ toPdf }) => (
               <button
                 type="submit"
@@ -73,6 +73,21 @@ const SelectedCourse = () => {
           </Link>
         </div>
       </div>
+      {/* <div className="text-black ">
+        <div className="ml-20">
+          <p className="text-5xl font-bold ">
+            {title} <span className="text-xl">by {instructor.name}</span>
+          </p>
+          <p className="text-xl mr-[1300px]">{details}</p>
+          <p className="text-xl">
+            Taken by <span className="font-bold">{taken_by}</span> Students
+          </p>
+          <p className="text-xl">
+            {" "}
+            <span className="font-bold">{rating}</span> Stars Rating
+          </p>
+        </div>
+      </div> */}
     </div>
   );
 };

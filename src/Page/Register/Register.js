@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Context/AuthProvider";
 import SignUpImg from "../../Image/SignUp.png";
@@ -8,9 +8,11 @@ const Register = () => {
   const { Register, UpdateUser } = useContext(AuthContext);
   const [error, setError] = useState();
   const navigate = useNavigate();
-  const HandleTC = (event) => {
-    const check = event.target.checked;
-  };
+  //const location = useLocation();
+  //const from = location.state?.from?.pathname || "/";
+  // const HandleTC = (event) => {
+  //   const check = event.target.checked;
+  // };
   const HandleForm = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -18,8 +20,10 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
+
     Register(email, password)
       .then(() => {
+        //navigate(from, { replace: true });
         swal({
           title: "Successfully Registered",
           button: "OK",
@@ -30,7 +34,9 @@ const Register = () => {
         const profile = { displayName: Username, photoURL: photoURL };
         UpdateUser(profile)
           .then(() => {})
-          .catch((error) => {});
+          .catch((error) => {
+            setError(error.message);
+          });
       })
       .catch((error) => {
         setError(error.message);
