@@ -13,29 +13,27 @@ const SideNavbar = () => {
     fetchData();
   }, []);
   return (
-    <div>
-      <aside className="w-full p-6 sm:w-60 dark:bg-gray-900 dark:text-gray-100 rounded-xl h-96 mt-10">
-        <nav className="space-y-8 text-sm w-96">
-          <div className="space-y-2">
-            <Link
-              to={"/Course"}
-              className="text-3xl text-center font-semibold tracking-widest uppercase dark:text-gray-400"
-            >
-              COURSES
-            </Link>
-            <div className="flex flex-col space-y-1">
-              {Categories.map((Category) => (
-                <Link
-                  className="text-2xl"
-                  key={Category.id}
-                  to={`/Course/${Category.id}`}
-                >
-                  {Category.name}
-                </Link>
-              ))}
-            </div>
+    <div className="text-center">
+      <aside className=" p-6 dark:bg-gray-900 dark:text-gray-100 rounded-xl h-80 mt-10">
+        <div className="space-y-2">
+          <Link
+            to={"/Course"}
+            className="text-3xl text-center font-semibold tracking-widest uppercase dark:text-gray-400"
+          >
+            COURSES
+          </Link>
+          <div className="flex flex-col space-y-1">
+            {Categories.map((Category) => (
+              <Link
+                className="text-2xl hover:text-violet-400 hover:border-b-2 border-violet-400"
+                key={Category.id}
+                to={`/Course/${Category.id}`}
+              >
+                {Category.name}
+              </Link>
+            ))}
           </div>
-        </nav>
+        </div>
       </aside>
     </div>
   );

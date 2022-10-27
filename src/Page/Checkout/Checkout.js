@@ -3,12 +3,10 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const Checkout = () => {
   const SelectedCourse = useLoaderData();
-  console.log(SelectedCourse);
   const { instructor, title, thumbnail_url, premium, _id } = SelectedCourse;
   return (
     <div className="flex justify-center">
       <div className="flex flex-col w-full md:w-2/3 h-[45rem] p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
-        <h2 className="text-xl font-semibold">Your cart</h2>
         <ul className="flex flex-col divide-y divide-gray-700">
           <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
             <div className="flex w-full space-x-2 sm:space-x-4">

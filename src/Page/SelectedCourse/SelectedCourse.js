@@ -14,7 +14,6 @@ const SelectedCourse = () => {
     premium,
     _id,
   } = SelectedCourse;
-  console.log(SelectedCourse);
   return (
     <div className="md:mt-20 md:mb-20">
       <section className="py-6 dark:text-gray-50">
@@ -30,7 +29,7 @@ const SelectedCourse = () => {
                 <img
                   src={instructor.img}
                   alt="instructor_Image"
-                  className="w-24 rounded-full"
+                  className="w-20 h-20 rounded-full"
                 />
                 <div className="text-xl ml-5">
                   <p>

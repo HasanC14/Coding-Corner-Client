@@ -9,6 +9,7 @@ import Login from "../Page/Login/Login";
 import Register from "../Page/Register/Register";
 import SelectedCourse from "../Page/SelectedCourse/SelectedCourse";
 import SelectedTopic from "../Page/SelectedTopic/SelectedTopic";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -45,7 +46,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/Checkout/:id",
-        element: <Checkout></Checkout>,
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://coding-corner-server.vercel.app/categoryDetails/${params.id}`

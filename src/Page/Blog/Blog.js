@@ -6,7 +6,7 @@ const Blog = () => {
       <div className="md:mb-12 md:mt-10">
         <p className="md:text-6xl text-3xl text-center font-bold">Blog</p>
       </div>
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-4 md:ml-36 m-5">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-4 lg:ml-36 m-5">
         <div className="max-w-3xl p-6 overflow-hidden rounded-lg shadow dark:bg-gray-900 dark:text-gray-100 flex justify-center items-center">
           <article>
             <h2 className="text-xl font-bold">What is cors?</h2>

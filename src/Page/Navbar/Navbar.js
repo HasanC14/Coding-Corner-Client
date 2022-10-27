@@ -68,7 +68,7 @@ const Navbar = () => {
             )}
 
             {/* Mobile view Toggle */}
-            <div className="flex justify-end md:hidden">
+            <div className="flex justify-end lg:hidden">
               <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
                 <span>
                   <FaSun />
@@ -89,7 +89,7 @@ const Navbar = () => {
           </nav>
         </div>
         {/* Desktop view Toggle */}
-        <div className="md:flex justify-end hidden ">
+        <div className="lg:flex justify-end hidden ">
           <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
             <span>
               <FaMoon />

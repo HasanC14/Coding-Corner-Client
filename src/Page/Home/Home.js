@@ -5,6 +5,7 @@ import FAQ from "../FAQ/FAQ.js";
 import Reviews from "../Reviews/Reviews";
 import { Link, useLoaderData } from "react-router-dom";
 import CategoryCard from "../CategoryCard/CategoryCard";
+import SideNavbar from "../SideNavbar/SideNavbar";
 const Home = () => {
   const Categories = useLoaderData();
   return (
@@ -35,12 +36,16 @@ const Home = () => {
           className="lg:w-1/2 w-4/6 mx-auto mb-12 -mt-28 rounded-2xl lg:-mt-80"
         />
       </section>
-      <p className="md:text-6xl text-3xl text-center font-bold mb-5">
-        Course Topics
+      {/* For Mobile View */}
+      <section className="m-10 md:hidden text-center">
+        <SideNavbar></SideNavbar>
+      </section>
+      {/* For Desktop view */}
+      <p className="md:text-5xl text-center font-bold mb-5 md:block hidden">
+        Courses we offer
       </p>
-
-      <section className="container flex justify-center md:ml-48 ">
-        <div className="grid md:grid-cols-3 gap-4 grid-cols-1 ">
+      <section className="container md:flex justify-center lg:ml-48 md:ml-24 hidden">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 grid-cols-1 ">
           {Categories.map((category) => (
             <CategoryCard key={category.id} category={category}></CategoryCard>
           ))}

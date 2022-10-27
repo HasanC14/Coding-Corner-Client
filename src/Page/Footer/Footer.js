@@ -19,9 +19,9 @@ const Footer = () => {
             <div className="col-span-6 text-center md:text-left md:col-span-3">
               <div className="grid grid-cols-3 gap-2">
                 <div>
-                  <a href="#hero" className="hover:dark:text-violet-400">
+                  <Link to="/" className="hover:dark:text-violet-400">
                     Home
-                  </a>
+                  </Link>
                 </div>
                 <div>
                   <Link to="/Course" className="hover:dark:text-violet-400">
@@ -29,7 +29,7 @@ const Footer = () => {
                   </Link>
                 </div>
                 <div>
-                  <a href="#Blog" className="hover:dark:text-violet-400">
+                  <a href="/Blog" className="hover:dark:text-violet-400">
                     Blog
                   </a>
                 </div>

@@ -2,13 +2,16 @@ import React, { useContext, useState } from "react";
 import LoginImg from "../../Image/Login.png";
 import swal from "sweetalert";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 //import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import "./Login.css";
 const Login = () => {
   const { Login, LoginWithGoogle, LoginWithGitHub } = useContext(AuthContext);
   const [error, setError] = useState();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   // const provider = new GoogleAuthProvider();
   // const Githubprovider = new GithubAuthProvider();
   const HandleForm = (event) => {
@@ -18,6 +21,7 @@ const Login = () => {
     const password = form.password.value;
     Login(email, password)
       .then(() => {
+        navigate(from, { replace: true });
         swal({
           title: "Login Successful",
           button: "OK",
@@ -32,6 +36,7 @@ const Login = () => {
   const HandleGoogle = () => {
     LoginWithGoogle()
       .then(() => {
+        navigate(from, { replace: true });
         swal({
           title: "Login Successful",
           button: "OK",
@@ -45,6 +50,7 @@ const Login = () => {
   const HandleGitHub = () => {
     LoginWithGitHub()
       .then(() => {
+        navigate(from, { replace: true });
         swal({
           title: "Login Successful",
           button: "OK",
@@ -52,7 +58,6 @@ const Login = () => {
         setError("");
       })
       .catch((error) => {
-        console.log(error);
         //setError(error);
       });
   };

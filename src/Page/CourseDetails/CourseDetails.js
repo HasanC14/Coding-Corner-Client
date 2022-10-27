@@ -16,7 +16,7 @@ const CourseDetails = ({ category }) => {
         </div>
         <div className="flex flex-wrap justify-between">
           <Link to={`/SelectedCourse/${_id}`}>
-            <button className="btn w-96 bg-violet-400 text-gray-800 hover:bg-violet-500">
+            <button className="btn w-full bg-violet-400 text-gray-800 hover:bg-violet-500">
               See Full Details
             </button>
           </Link>
