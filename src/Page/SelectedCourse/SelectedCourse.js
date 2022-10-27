@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-
+import Pdf from "react-to-pdf";
 const SelectedCourse = () => {
+  const ref = React.createRef();
   const SelectedCourse = useLoaderData();
   const {
     instructor,
@@ -23,8 +24,10 @@ const SelectedCourse = () => {
           </div>
           <div>
             <div className="ml-10">
-              <p className="text-2xl">{title}</p>
-              <p>{details}</p>
+              <div className="text-black" ref={ref}>
+                <p className="text-2xl">{title}</p>
+                <p>{details}</p>
+              </div>
               <div className="mt-3 flex">
                 <img
                   src={instructor.img}
@@ -48,12 +51,18 @@ const SelectedCourse = () => {
       </section>
       <div className="flex justify-center mb-10">
         <div className="grid grid-cols-1 gap-4">
-          <button
-            type="submit"
-            className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-400 dark:text-gray-900 focus:ring-violet-400 hover:ring-violet-400 w-96"
-          >
-            Download Course Outline
-          </button>
+          <Pdf targetRef={ref} filename="code-example.pdf">
+            {({ toPdf }) => (
+              <button
+                type="submit"
+                className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-400 dark:text-gray-900 focus:ring-violet-400 hover:ring-violet-400 w-96"
+                onClick={toPdf}
+              >
+                Download Course Outline
+              </button>
+            )}
+          </Pdf>
+
           <Link to={`/Checkout/${_id}`}>
             <button
               type="submit"
