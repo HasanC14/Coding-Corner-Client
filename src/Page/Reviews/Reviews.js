@@ -1,4 +1,5 @@
 import React from "react";
+import reviewImg from "../../Image/review.webp";
 const Reviews = () => {
   return (
     <div>
@@ -21,8 +22,8 @@ const Reviews = () => {
           </p>
           <div className="flex justify-center space-x-3">
             <img
-              src="https://lh3.googleusercontent.com/a/ALm5wu1MgGZviI0A2ELDgXA4ZY5mHc1PiZzC5ZVf6aGPiYI=s75-p-k-rw-no"
-              alt=""
+              src={reviewImg}
+              alt="Reviewer_Image"
               className="w-20 h-20 bg-center bg-cover rounded-full dark:bg-gray-500"
             />
             <div className="flex justify-center items-center">

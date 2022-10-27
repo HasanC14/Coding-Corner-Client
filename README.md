@@ -1,6 +1,6 @@
 # Website
 
-Programming QUIZ
+CODE CORNER
 
 # Live Site Link
 
@@ -12,15 +12,19 @@ https://github.com/HasanC14
 
 # Description
 
-An interactive quiz website made with React JS and Tailwind CSS
+CODE CORNER skill path is your portal to discovering whether a career in Computer Science, Web Development, or Data Science is right for you.You can select from multiple topics.
 
 # Features
 
 - Select from multiple topics
-- Try a different question and see if it's correct or not
-- If you are unsure of the correct answer, you can always look it up
+- Online Course Catalogs
+- Self Registration
+- Responsive Design Features
+- Natural User Interface
 
-# Used
+# Library
 
-- React
+- ReactJS
+- Node.js
 - Tailwind CSS
+- ExpressJS

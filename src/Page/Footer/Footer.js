@@ -1,3 +1,4 @@
+import { EmojiEmotions } from "@mui/icons-material";
 import React from "react";
 import { FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -54,9 +55,16 @@ const Footer = () => {
           <div className="grid justify-center pt-6 lg:justify-between">
             <div className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6">
               <span>©2022 All rights reserved</span>
-              <Link rel="noopener noreferrer" href="#">
-                <span>Terms of service</span>
-              </Link>
+
+              <span>
+                Made by
+                <a
+                  href="https://www.facebook.com/hasan.chowdhuryD/"
+                  className="hover:text-violet-500"
+                >
+                  Hasan Chowdhury
+                </a>
+              </span>
             </div>
             <div className="flex justify-center pt-4 space-x-4 lg:pt-0 lg:col-end-13">
               <a

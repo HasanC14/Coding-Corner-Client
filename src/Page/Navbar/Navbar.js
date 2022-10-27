@@ -41,8 +41,8 @@ const Navbar = () => {
           <nav ref={navRef}>
             <Link to="/">Home</Link>
             <Link to="/Course">Courses</Link>
-            <a href="#Reviews">Reviews</a>
             <Link to="/Blog">Blog</Link>
+            <Link to="/faq">FAQ</Link>
             {User ? (
               <button onClick={HandleLogout}>Logout</button>
             ) : (
