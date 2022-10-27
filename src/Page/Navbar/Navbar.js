@@ -39,16 +39,39 @@ const Navbar = () => {
         {/* Menu */}
         <div>
           <nav ref={navRef}>
-            <Link to="/">Home</Link>
-            <Link to="/Course">Courses</Link>
-            <Link to="/Blog">Blog</Link>
-            <Link to="/faq">FAQ</Link>
+            <Link to="/" className="hover:border-b-2 border-violet-400">
+              Home
+            </Link>
+            <Link to="/Course" className="hover:border-b-2 border-violet-400">
+              Courses
+            </Link>
+            <Link to="/Blog" className="hover:border-b-2 border-violet-400">
+              Blog
+            </Link>
+            <Link to="/faq" className="hover:border-b-2 border-violet-400">
+              FAQ
+            </Link>
             {User ? (
-              <button onClick={HandleLogout}>Logout</button>
+              <Link
+                onClick={HandleLogout}
+                className="hover:border-b-2 border-violet-400"
+              >
+                Logout
+              </Link>
             ) : (
               <>
-                <Link to="/Login">Login</Link>
-                <Link to="/Register">Register</Link>
+                <Link
+                  to="/Login"
+                  className="hover:border-b-2 border-violet-400"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/Register"
+                  className="hover:border-b-2 border-violet-400"
+                >
+                  Register
+                </Link>
               </>
             )}
             {User ? (
