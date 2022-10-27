@@ -37,14 +37,14 @@ const Home = () => {
         />
       </section>
       {/* For Mobile View */}
-      <section className="m-10 md:hidden text-center">
+      <section className="m-10 lg:hidden text-center">
         <SideNavbar></SideNavbar>
       </section>
       {/* For Desktop view */}
-      <p className="md:text-5xl text-center font-bold mb-5 md:block hidden">
+      <p className="md:text-5xl text-center font-bold mb-5 lg:block hidden">
         Courses we offer
       </p>
-      <section className="container md:flex justify-center lg:ml-48 md:ml-24 hidden">
+      <section className="container lg:flex justify-center lg:ml-48 md:ml-24 hidden">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 grid-cols-1 ">
           {Categories.map((category) => (
             <CategoryCard key={category.id} category={category}></CategoryCard>
