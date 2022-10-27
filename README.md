@@ -4,7 +4,7 @@ CODE CORNER
 
 # Live Site Link
 
-https://programming-quiz14.netlify.app/
+https://codecorner-1411.web.app/
 
 # My GitHub
 
