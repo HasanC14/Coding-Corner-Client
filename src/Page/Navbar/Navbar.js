@@ -26,7 +26,7 @@ const Navbar = () => {
   };
   return (
     <header>
-      <div className="grid grid-cols-3 gap-8">
+      <div className="lg:max-w-screen-xl mx-auto m-0">
         {/* Logo */}
         <div>
           <Link to="/" className="p-2 mr-4 inline-flex items-center">
@@ -37,7 +37,7 @@ const Navbar = () => {
           </Link>
         </div>
         {/* Menu */}
-        <div>
+        <div className="lg:ml-96">
           <nav ref={navRef}>
             <Link to="/" className="hover:border-b-2 border-violet-400">
               Home
@@ -91,7 +91,7 @@ const Navbar = () => {
             )}
 
             {/* Mobile view Toggle */}
-            <div className="flex justify-end lg:hidden">
+            {/* <div className="flex justify-end lg:hidden">
               <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
                 <span>
                   <FaSun />
@@ -105,14 +105,14 @@ const Navbar = () => {
                   <FaMoon />
                 </span>
               </label>
-            </div>
+            </div> */}
             <button className="nav-btn nav-close-btn" onClick={showNavbar}>
               <FaTimes />
             </button>
           </nav>
         </div>
         {/* Desktop view Toggle */}
-        <div className="lg:flex justify-end hidden ">
+        {/* <div className="lg:flex justify-end hidden ">
           <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
             <span>
               <FaMoon />
@@ -126,7 +126,7 @@ const Navbar = () => {
               <FaSun />
             </span>
           </label>
-        </div>
+        </div> */}
       </div>
 
       <button className="nav-btn" onClick={showNavbar}>
